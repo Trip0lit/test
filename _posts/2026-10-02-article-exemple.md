@@ -6,7 +6,7 @@
 # ---------------------------------------------------------------
 
 # Titre de l'article (obligatoire)
-title: "Article d'exemple : tout ce que vous pouvez faire dans un article"
+title: "Une Parisienne tête d'affiche"
 
 # Date de publication au format année-mois-jour (obligatoire)
 date: 2026-10-02
@@ -17,59 +17,59 @@ image_legende: "La façade d'un palais de justice (illustration d'exemple)."
 image_credit: "J'ai crée un média"
 
 # Résumé de quelques lignes, affiché sous le titre et dans les listes
-description: "Cet article sert de modèle : il montre le titre, le résumé, l'image de couverture, la mise en forme du texte et l'insertion d'une ou plusieurs photos."
+description: "Chahed Ferchichi, grande avocate pleine d'esprit et du curiosité ouvre son média "j'ai créé un média""
 
 # Facultatif : la rubrique (petit mot en couleur) et l'auteur
-rubrique: Mode d'emploi
-auteur: La rédaction
+rubrique: La New de la Semaine
+auteur: Chahed Ferchichi
 ---
 
-Ce premier paragraphe commence automatiquement par une grande lettrine. Pour écrire un article, il suffit de taper du texte normalement : laissez **une ligne vide** entre deux paragraphes. Vous pouvez mettre des mots en **gras** avec deux astérisques, en *italique* avec une seule, et ajouter [un lien vers un autre site](https://www.legifrance.gouv.fr).
+Il y a des gens qui entrent dans une pièce et en changent la température. **Chahed Ferchichi** est de ceux-là. Avocate au barreau de Paris, elle plaide le jour, refait le monde le soir, et termine parfois la nuit sur une piste de danse sans jamais perdre le fil de son argument. Aujourd'hui, elle se lance dans une nouvelle aventure : un média à son image, *exigeant sur le fond, insolent dans la forme*, qui entend parler de droit, de politique et de société [sans jargon ni langue de bois](https://www.legifrance.gouv.fr).
 
-## Un intertitre
+## Des bancs de la Sorbonne aux salles d'audience
 
-Un intertitre commence par deux dièses (`##`) suivis d'un espace. Il permet de découper un long article en parties.
+Avant la robe noire, il y a eu les badges de délégués et les nuits blanches à rédiger des résolutions. À la Sorbonne, Chahed a présidé l'association qui organise des **MUN**, ces simulations des Nations unies où des étudiants endossent le rôle de diplomates le temps d'un week-end. Négocier avec une délégation récalcitrante à deux heures du matin, convaincre une salle entière en trois minutes chrono, garder son sang-froid quand une motion déraille : c'est là, raconte-t-on, qu'elle a appris l'essentiel de son métier.
 
-### Une question d'entretien commence par trois dièses ?
+Ceux qui l'ont connue à cette époque se souviennent surtout de sa capacité à désamorcer les crises par une seule phrase, souvent drôle, toujours tranchante. *Le genre de présidente qu'on redoute en séance et qu'on adore au dîner.*
 
-Avec trois dièses (`###`), on obtient une ligne en gras soulignée d'un trait bordeaux sur la gauche : c'est le style idéal pour les questions d'une interview. La réponse s'écrit ensuite comme un paragraphe ordinaire.
+{% include photo.html fichier="chahed-portrait.jpg" legende="Chahed Ferchichi, avocate au barreau de Paris et fondatrice du média." credit="J'ai créé un média" %}
 
-## Une photo dans le texte
+## L'entretien
 
-Pour insérer une photo, déposez-la d'abord dans le dossier `assets/images`, puis recopiez la ligne ci-dessous en changeant le nom du fichier, la légende et le crédit :
+### Pourquoi lancer un média maintenant ?
 
-{% include photo.html fichier="exemple-balance.jpg" legende="La balance, symbole de la justice." credit="J'ai crée un média" %}
+« Parce que tout le monde a un avis sur tout, mais presque personne n'explique comment les choses fonctionnent vraiment. Le droit est partout dans nos vies, et on le traite comme une langue morte. Je veux le rendre vivant, accessible, et un peu piquant. »
 
-La légende et le crédit sont facultatifs. Une photo peut aussi être affichée **plus large** que le texte en ajoutant `taille="large"` :
+### Le droit, la politique… et la nuit. Comment tout concilier ?
 
-{% include photo.html fichier="exemple-bibliotheque.jpg" legende="Une bibliothèque de droit (illustration d'exemple)." taille="large" %}
+« Très mal, et c'est très bien comme ça ! Plus sérieusement, je crois qu'on comprend mieux une époque en sortant de chez soi. Les meilleures conversations politiques que j'ai eues, je les ai eues à trois heures du matin, pas dans un amphithéâtre. »
 
-## Plusieurs photos côte à côte
+### Votre humour vous a-t-il déjà joué des tours ?
 
-Pour en afficher deux ou trois sur une même ligne, on sépare les noms des fichiers par des virgules :
+« Plus d'une fois. Mais un bon trait d'esprit, c'est comme une bonne plaidoirie : il faut savoir le placer au bon moment. J'ai appris à attendre… un peu. »
 
-{% include galerie.html fichiers="exemple-balance.jpg, exemple-plume.jpg" legende="Deux photos côte à côte." %}
+## Une vie en images
 
-{% include galerie.html fichiers="exemple-plume.jpg, exemple-balance.jpg, exemple-bibliotheque.jpg" legende="Trois photos côte à côte : sur téléphone, elles s'affichent les unes sous les autres." %}
+{% include photo.html fichier="chahed-tribune.jpg" legende="À la tribune, lors d'une simulation des Nations unies à la Sorbonne." taille="large" %}
 
-## Citations et listes
+{% include galerie.html fichiers="chahed-mun.jpg, chahed-palais.jpg" legende="Des conférences étudiantes au Palais de justice." %}
 
-Une citation mise en valeur commence par le signe `>` :
+{% include galerie.html fichiers="chahed-plaidoirie.jpg, chahed-redaction.jpg, chahed-soiree.jpg" legende="Plaider, écrire, sortir : les trois vies de Chahed Ferchichi." %}
 
-> « Une citation importante, mise en valeur au milieu de l'article. »
+## Ce que promet le média
 
-Et une liste commence par des tirets :
+> « Je ne veux pas faire un média de plus. Je veux faire celui que j'aurais aimé lire. »
 
-- un premier point ;
-- un deuxième point ;
-- un dernier point.
+Au programme des prochaines semaines :
 
-Pour une liste numérotée, on écrit `1.`, `2.`, `3.` en début de ligne :
+- des décryptages juridiques de l'actualité, sans jargon ;
+- des entretiens avec celles et ceux qui font la vie politique et judiciaire ;
+- des chroniques à l'humour assumé, parce qu'on peut être sérieux sans se prendre au sérieux.
 
-1. Déposer les photos dans `assets/images`.
-2. Créer le fichier de l'article dans `_posts`.
-3. Enregistrer : le site se met à jour en une ou deux minutes.
+Pour ne rien manquer :
+
+1. Ajoutez le site à vos favoris.
+2. Suivez le média sur les réseaux sociaux.
+3. Partagez cet article à ceux qui pensent encore que le droit est ennuyeux.
 
 ---
-
-Une ligne composée de trois tirets (`---`) trace un séparateur, comme celui ci-dessus. Tout le reste est expliqué pas à pas dans le fichier README du projet.
