@@ -12,8 +12,8 @@ title: "Une Parisienne tête d'affiche"
 date: 2026-10-02
 
 # Image de couverture : le nom d'un fichier rangé dans assets/images
-image: exemple-couverture-palais.jpg
-image_legende: "La façade d'un palais de justice (illustration d'exemple)."
+image: ferchichi1compress.jpg
+image_legende: "un costume, une femme, une ambition"
 image_credit: "J'ai crée un média"
 
 # Résumé de quelques lignes, affiché sous le titre et dans les listes
@@ -32,7 +32,7 @@ Avant la robe noire, il y a eu les badges de délégués et les nuits blanches �
 
 Ceux qui l'ont connue à cette époque se souviennent surtout de sa capacité à désamorcer les crises par une seule phrase, souvent drôle, toujours tranchante. *Le genre de présidente qu'on redoute en séance et qu'on adore au dîner.*
 
-{% include photo.html fichier="chahed-portrait.jpg" legende="Chahed Ferchichi, avocate au barreau de Paris et fondatrice du média." credit="J'ai créé un média" %}
+{% include photo.html fichier="ferchichi2compress.jpg" legende="Chahed Ferchichi, avocate au barreau de Paris et fondatrice du média." credit="J'ai créé un média" %}
 
 ## L'entretien
 
@@ -50,11 +50,7 @@ Ceux qui l'ont connue à cette époque se souviennent surtout de sa capacité à
 
 ## Une vie en images
 
-{% include photo.html fichier="chahed-tribune.jpg" legende="À la tribune, lors d'une simulation des Nations unies à la Sorbonne." taille="large" %}
-
-{% include galerie.html fichiers="chahed-mun.jpg, chahed-palais.jpg" legende="Des conférences étudiantes au Palais de justice." %}
-
-{% include galerie.html fichiers="chahed-plaidoirie.jpg, chahed-redaction.jpg, chahed-soiree.jpg" legende="Plaider, écrire, sortir : les trois vies de Chahed Ferchichi." %}
+{% include photo.html fichier="ferchichi3compress.jpg" legende="À la tribune, lors d'une simulation des Nations unies à la Sorbonne." taille="large" %}
 
 ## Ce que promet le média
 
