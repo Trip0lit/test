@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{%- assign mots = content | strip_html | number_of_words -%}
+{%- assign lecture = mots | plus: 199 | divided_by: 200 | at_least: 1 -%}
+<article>
+  <div class="wrap">
+    <header class="article-head">
+      {%- if page.rubrique %}<span class="kicker">{{ page.rubrique }}</span>{% endif %}
+      <h1>{{ page.title }}</h1>
+      {%- if page.description %}<p class="chapo">{{ page.description }}</p>{% endif %}
+      <p class="meta">
+        {% include date-fr.html date=page.date %}
+        {%- if page.auteur %} · Par {{ page.auteur }}{% endif %} · Lecture {{ lecture }} min
+      </p>
+    </header>
+
+    <figure class="article-figure">
+      {% include couverture.html article=page legende=page.personne %}
+      {%- if page.image and page.image_legende or page.image_credit %}
+      <figcaption>{{ page.image_legende }}{% if page.image_credit %} <span class="credit">© {{ page.image_credit }}</span>{% endif %}</figcaption>
+      {%- endif %}
+    </figure>
+
+    <div class="prose">
+      {{ content }}
+
+      {%- if page.bio %}
+      <div class="bio">{{ page.bio | markdownify }}</div>
+      {%- endif %}
+    </div>
+
+    {%- if page.previous or page.next %}
+    <nav class="suite" aria-label="Autres articles">
+      {%- if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}"><span class="kicker">← Article précédent</span><span class="suite-titre">{{ page.previous.title }}</span></a>
+      {%- else %}<span></span>{% endif %}
+      {%- if page.next %}
+      <a class="suite-next" href="{{ page.next.url | relative_url }}"><span class="kicker">Article suivant →</span><span class="suite-titre">{{ page.next.title }}</span></a>
+      {%- endif %}
+    </nav>
+    {%- endif %}
+  </div>
+</article>

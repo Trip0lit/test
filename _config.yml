@@ -1,0 +1,55 @@
+# ==========================================================================
+#  Réglages du site — vous pouvez modifier les textes ci-dessous.
+#  Attention : respectez l'indentation et gardez les guillemets.
+# ==========================================================================
+
+title: "J'ai crée un média"
+tagline: "L'actualité du droit, par celles et ceux qui le font"
+description: "Média indépendant consacré à l'actualité juridique française et aux grandes voix du droit."
+lang: fr
+
+# Citation affichée au milieu de la page d'accueil
+citation:
+  texte: "Une décision de justice n'est comprise que si elle est expliquée. C'est tout le sens de notre travail."
+  auteur: "Bertrand Vasseur, conseiller d'État honoraire"
+
+# Rubriques proposées sur la page d'accueil
+rubriques:
+  - Droit pénal
+  - Droit public
+  - Droit des affaires
+  - Numérique & données
+  - Social & travail
+  - Famille & personnes
+  - Environnement
+  - Institutions
+
+# Adresse du site. Le dépôt « trip0lit/test » est publié par GitHub sur
+# https://trip0lit.github.io/test : d'où url et baseurl ci-dessous.
+# Avec un nom de domaine personnalisé (ex. https://www.monmedia.fr) :
+#   url: "https://www.monmedia.fr"   et   baseurl: ""
+url: "https://trip0lit.github.io"
+baseurl: "/test"
+
+# --------------------------------------------------------------------------
+#  Réglages techniques (inutile d'y toucher)
+# --------------------------------------------------------------------------
+timezone: Europe/Paris
+markdown: kramdown
+permalink: /articles/:year/:month/:day/:title/
+plugins:
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle

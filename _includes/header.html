@@ -1,0 +1,27 @@
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <span data-today>Édition du jour</span>
+    <span><a href="{{ '/#lettre' | relative_url }}">Recevoir la lettre</a></span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <a href="{{ '/' | relative_url }}" class="brand">J'ai crée <span>un</span> média</a>
+    <p class="tagline">{{ site.tagline }}</p>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Navigation principale">
+  <div class="wrap">
+    <ul>
+      <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>À la une</a></li>
+      <li><a href="{{ '/articles/' | relative_url }}"{% if page.url == '/articles/' or page.date %} aria-current="page"{% endif %}>Articles</a></li>
+      <li><a href="{{ '/#entretiens' | relative_url }}">Entretiens</a></li>
+      <li><a href="{{ '/#rubriques' | relative_url }}">Rubriques</a></li>
+      <li><a href="{{ '/#lettre' | relative_url }}">La lettre</a></li>
+    </ul>
+  </div>
+</nav>

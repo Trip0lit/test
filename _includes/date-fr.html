@@ -1,0 +1,5 @@
+{%- comment -%} Affiche une date en français : {% include date-fr.html date=page.date %} {%- endcomment -%}
+{%- assign mois = "janvier,février,mars,avril,mai,juin,juillet,août,septembre,octobre,novembre,décembre" | split: "," -%}
+{%- assign m = include.date | date: "%-m" | minus: 1 -%}
+{%- assign j = include.date | date: "%-d" -%}
+<time datetime="{{ include.date | date: '%Y-%m-%d' }}">{% if j == "1" %}1er{% else %}{{ j }}{% endif %} {{ mois[m] }} {{ include.date | date: "%Y" }}</time>

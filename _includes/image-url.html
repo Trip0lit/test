@@ -1,0 +1,9 @@
+{%- comment -%}
+  Transforme un nom de fichier (ex. « palais.jpg ») en adresse complète vers assets/images/.
+  Accepte aussi un chemin (« /assets/images/palais.jpg ») ou une adresse web (« https://… »).
+{%- endcomment -%}
+{%- assign chemin_image = include.fichier | strip -%}
+{%- if chemin_image contains "://" -%}{{ chemin_image }}
+{%- elsif chemin_image contains "/" -%}{{ chemin_image | relative_url }}
+{%- else -%}{{ "/assets/images/" | append: chemin_image | relative_url }}
+{%- endif -%}
