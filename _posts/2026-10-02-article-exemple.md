@@ -17,7 +17,7 @@ image_legende: "La façade d'un palais de justice (illustration d'exemple)."
 image_credit: "J'ai crée un média"
 
 # Résumé de quelques lignes, affiché sous le titre et dans les listes
-description: "Chahed Ferchichi, grande avocate pleine d'esprit et du curiosité ouvre son média "j'ai créé un média""
+description: "Chahed Ferchichi, grande avocate pleine d'esprit et du curiosité ouvre son média « j'ai créé un média »"
 
 # Facultatif : la rubrique (petit mot en couleur) et l'auteur
 rubrique: La New de la Semaine
