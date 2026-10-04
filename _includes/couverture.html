@@ -1,0 +1,19 @@
+{%- comment -%}
+  Visuel d'un article : sa photo de couverture, ou à défaut ses initiales.
+  Paramètres : article (obligatoire), legende (texte affiché en bas du cadre, facultatif)
+{%- endcomment -%}
+{%- assign a = include.article -%}
+{%- if a.image -%}
+  {%- capture src %}{% include image-url.html fichier=a.image %}{% endcapture -%}
+  <div class="portrait has-img"><img src="{{ src | strip }}" alt="{{ a.image_legende | default: a.title | escape }}" loading="lazy"></div>
+{%- else -%}
+  {%- if a.initiales -%}
+    {%- assign initiales = a.initiales -%}
+  {%- else -%}
+    {%- assign initiales = a.title | remove: "«" | remove: " " | strip | slice: 0 -%}
+  {%- endif -%}
+  <div class="portrait" aria-hidden="true">
+    <span class="initials">{{ initiales }}</span>
+    {%- if include.legende %}<span class="portrait-caption">{{ include.legende }}</span>{% endif %}
+  </div>
+{%- endif -%}

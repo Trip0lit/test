@@ -1,0 +1,30 @@
+---
+layout: default
+title: Tous les articles
+description: Toute l'actualité juridique et les entretiens, du plus récent au plus ancien.
+---
+<div class="wrap">
+  <header class="article-head">
+    <span class="kicker">Les archives</span>
+    <h1>Tous les articles</h1>
+    <p class="chapo">{{ page.description }}</p>
+  </header>
+
+  <div class="liste">
+    {%- for article in site.posts %}
+    <article class="liste-item">
+      <a class="liste-visuel" href="{{ article.url | relative_url }}" tabindex="-1" aria-hidden="true">
+        {% include couverture.html article=article %}
+      </a>
+      <div>
+        {%- if article.rubrique %}<span class="kicker">{{ article.rubrique }}</span>{% endif %}
+        <h2><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h2>
+        {%- if article.description %}<p>{{ article.description }}</p>{% endif %}
+        <span class="meta">{% include date-fr.html date=article.date %}{% if article.auteur %} · {{ article.auteur }}{% endif %}</span>
+      </div>
+    </article>
+    {%- else %}
+    <p class="meta">Aucun article pour le moment.</p>
+    {%- endfor %}
+  </div>
+</div>

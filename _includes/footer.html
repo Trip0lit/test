@@ -1,0 +1,24 @@
+<footer class="footer">
+  <div class="wrap">
+    <div>
+      <div class="brand">J'ai crée <span>un</span> média</div>
+      <p>{{ site.description }}</p>
+    </div>
+    <div>
+      <h4>Le média</h4>
+      <ul>
+        <li><a href="{{ '/articles/' | relative_url }}">Tous les articles</a></li>
+        <li><a href="{{ '/#entretiens' | relative_url }}">Les entretiens</a></li>
+        <li><a href="{{ '/#rubriques' | relative_url }}">Les rubriques</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Suivre</h4>
+      <ul>
+        <li><a href="{{ '/#lettre' | relative_url }}">La lettre</a></li>
+        <li><a href="{{ '/feed.xml' | relative_url }}">Flux RSS</a></li>
+      </ul>
+    </div>
+    <p class="legal">© <span data-year>{{ site.time | date: "%Y" }}</span> {{ site.title }} · Mentions légales · Confidentialité</p>
+  </div>
+</footer>

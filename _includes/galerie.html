@@ -1,0 +1,16 @@
+{%- comment -%}
+  Insère plusieurs photos côte à côte.
+  {% include galerie.html fichiers="photo-1.jpg, photo-2.jpg, photo-3.jpg" legende="Texte sous les photos" %}
+{%- endcomment -%}
+{%- assign liste = include.fichiers | split: "," -%}
+<figure class="galerie galerie-{{ liste.size | at_most: 3 }}">
+  <div class="galerie-grille">
+  {%- for f in liste %}
+    {%- capture src %}{% include image-url.html fichier=f %}{% endcapture %}
+    <img src="{{ src | strip }}" alt="{{ include.legende | default: '' | escape }}" loading="lazy">
+  {%- endfor %}
+  </div>
+  {%- if include.legende or include.credit %}
+  <figcaption>{{ include.legende }}{% if include.credit %} <span class="credit">© {{ include.credit }}</span>{% endif %}</figcaption>
+  {%- endif %}
+</figure>
