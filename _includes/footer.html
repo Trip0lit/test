@@ -1,24 +1,13 @@
-<footer class="footer">
-  <div class="wrap">
-    <div>
-      <div class="brand">J'ai crée <span>un</span> média</div>
-      <p>{{ site.description }}</p>
-    </div>
-    <div>
-      <h4>Le média</h4>
-      <ul>
-        <li><a href="{{ '/articles/' | relative_url }}">Tous les articles</a></li>
-        <li><a href="{{ '/#entretiens' | relative_url }}">Les entretiens</a></li>
-        <li><a href="{{ '/#rubriques' | relative_url }}">Les rubriques</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Suivre</h4>
-      <ul>
-        <li><a href="{{ '/#lettre' | relative_url }}">La lettre</a></li>
-        <li><a href="{{ '/feed.xml' | relative_url }}">Flux RSS</a></li>
-      </ul>
-    </div>
-    <p class="legal">© <span data-year>{{ site.time | date: "%Y" }}</span> {{ site.title }} · Mentions légales · Confidentialité</p>
+<footer class="site-footer">
+  <p class="display footer-titre">{{ site.title }}</p>
+  <div class="footer-bas">
+    <ul class="label">
+      <li><a href="{{ '/#media' | relative_url }}">Le média</a></li>
+      <li><a href="{{ '/articles/' | relative_url }}">Articles</a></li>
+      <li><a href="{{ '/#entretiens' | relative_url }}">Entretiens</a></li>
+      <li><a href="{{ '/#lettre' | relative_url }}">La lettre</a></li>
+      <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
+    </ul>
+    <p class="footer-legal">© <span data-year>{{ site.time | date: "%Y" }}</span> {{ site.title }} · Mentions légales · Confidentialité</p>
   </div>
 </footer>

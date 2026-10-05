@@ -3,108 +3,154 @@ layout: default
 ---
 {%- assign une = site.posts.first -%}
 {%- assign entretiens = site.posts | where: "rubrique", "Entretien" -%}
+{%- assign photos = site.photos_collage -%}
+{%- assign photo1 = photos[0] -%}
+{%- assign photo2 = photos[1] -%}
+{%- assign photo3 = photos[2] -%}
+{%- assign photo4 = photos[3] -%}
 
-{%- if une %}
-<!-- À la une : l'article le plus récent -->
-<div class="wrap">
-  <section class="lead">
-    <div>
-      <span class="kicker">À la une{% if une.rubrique %} · {{ une.rubrique }}{% endif %}</span>
-      <h1><a href="{{ une.url | relative_url }}">{{ une.title }}</a></h1>
-      {%- if une.description %}<p class="chapo">{{ une.description }}</p>{% endif %}
-      <p class="byline">{% include date-fr.html date=une.date %}{% if une.auteur %} · Par <strong>{{ une.auteur }}</strong>{% endif %}</p>
-      <a class="btn" href="{{ une.url | relative_url }}">Lire l'article <span aria-hidden="true">→</span></a>
-    </div>
-    <a href="{{ une.url | relative_url }}" tabindex="-1" aria-hidden="true">
-      {% include couverture.html article=une legende=une.personne %}
+<!-- Ouverture : collage autour de l'article à la une -->
+<section class="hero">
+  <div class="collage">
+    <div class="scrap scrap-notebook" aria-hidden="true"></div>
+    <div class="scrap scrap-pink" aria-hidden="true"></div>
+    <div class="scrap scrap-paper" aria-hidden="true"></div>
+    {% include tampon.html classe="stamp-1" texte="ACTUALITÉ JURIDIQUE · PARIS · FRANCE ·" centre="§" %}
+    {% include tampon.html classe="stamp-2 stamp-orange" texte="ÉDITION · SPÉCIALE · ÉDITION ·" centre="✶" %}
+    {%- if une %}
+    <a href="{{ une.url | relative_url }}" aria-label="À la une : {{ une.title | strip_html | escape }}">
+      <div class="polaroid">{% include couverture.html article=une chargement="eager" %}</div>
     </a>
-  </section>
-</div>
-{%- endif %}
+    {%- else %}
+    <div class="polaroid"><div class="placeholder" aria-hidden="true">{{ site.initiales }}</div></div>
+    {%- endif %}
+    <span class="pin" aria-hidden="true"></span>
+    <span class="tape" aria-hidden="true"></span>
+  </div>
 
-{%- if site.posts.size > 1 %}
-<!-- Actualité : les articles suivants -->
-<section class="section" id="actualite">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>L'actualité juridique</h2>
-      <a href="{{ '/articles/' | relative_url }}">Tous les articles →</a>
+  <p class="hero-sub">{{ site.tagline }}</p>
+  <h1 class="display hero-title">{{ site.title }}</h1>
+
+  {%- if une %}
+  <p class="hero-une">
+    <span class="label">À la une</span>
+    <a class="link-underline" href="{{ une.url | relative_url }}">{{ une.title }}</a>
+  </p>
+  {%- endif %}
+</section>
+
+<!-- Présentation (textes modifiables dans _config.yml) -->
+<section class="section manifeste" id="media">
+  <p class="label">Le média</p>
+  <p class="manifeste-texte">
+    {{ site.manifeste.texte }}
+    {% if site.manifeste.italique %}<em>{{ site.manifeste.italique }}</em>{% endif %}
+    {% if site.manifeste.entoure %}<em class="entoure">{{ site.manifeste.entoure }}</em>{% endif %}
+    <span class="tape tape-blue" aria-hidden="true"></span>
+    <span class="manifeste-photo" aria-hidden="true">
+      <span class="scrap scrap-kraft"></span>
+      <span class="timbre" style="display:block">{% include visuel.html fichier=photo1 %}</span>
+    </span>
+  </p>
+
+  {%- if site.valeurs %}
+  <p class="label valeurs-label">Nos valeurs</p>
+  <div class="valeurs">
+    {%- for v in site.valeurs %}
+    <p><strong>{{ v.titre }}</strong> {{ v.texte }}</p>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+</section>
+
+<!-- Les derniers articles, en carrousel -->
+{%- if site.posts.size > 0 %}
+<section class="section" id="articles">
+  <div class="section-top">
+    <div>
+      <p class="label">Les articles</p>
+      <p>Décryptages, entretiens et chroniques : l'actualité du droit, racontée sans jargon.</p>
     </div>
-    <div class="news">
-      {%- for article in site.posts offset: 1 limit: 6 %}
-      <article>
-        {%- if article.rubrique %}<span class="kicker">{{ article.rubrique }}</span>{% endif %}
-        <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
-        {%- if article.description %}<p>{{ article.description }}</p>{% endif %}
-        <span class="meta">{% include date-fr.html date=article.date %}</span>
-      </article>
-      {%- endfor %}
+    <div class="carousel-nav">
+      <button type="button" data-carousel-prev aria-controls="carrousel">Précédent</button>
+      <button type="button" data-carousel-next aria-controls="carrousel">Suivant</button>
     </div>
   </div>
+  <div class="carousel" id="carrousel" data-carousel>
+    {%- for article in site.posts limit: 10 %}
+    <article class="card">
+      <a class="card-visuel" href="{{ article.url | relative_url }}" tabindex="-1" aria-hidden="true">{% include couverture.html article=article %}</a>
+      <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
+      <p class="card-meta">{{ article.rubrique | default: "Article" }} · {% include date-fr.html date=article.date %}</p>
+    </article>
+    {%- endfor %}
+  </div>
+  <p style="margin-top: 40px"><a class="label link-underline" href="{{ '/articles/' | relative_url }}">Tous les articles →</a></p>
 </section>
 {%- endif %}
 
-{%- if site.citation.texte %}
-<!-- Citation (modifiable dans _config.yml) -->
-<section class="pull" aria-label="Citation">
-  <div class="wrap">
-    <blockquote>
-      {{ site.citation.texte }}
-      {%- if site.citation.auteur %}<cite>{{ site.citation.auteur }}</cite>{% endif %}
-    </blockquote>
-  </div>
-</section>
-{%- endif %}
-
-{%- if entretiens.size > 0 %}
 <!-- Entretiens : articles dont la rubrique est « Entretien » -->
+{%- if entretiens.size > 0 %}
 <section class="section" id="entretiens">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Les entretiens</h2>
-      <a href="{{ '/articles/' | relative_url }}">Tous les articles →</a>
-    </div>
-    <div class="interviews">
-      {%- for article in entretiens limit: 3 %}
-      <article class="card">
-        <a href="{{ article.url | relative_url }}" tabindex="-1" aria-hidden="true">
-          {% include couverture.html article=article %}
-        </a>
-        <span class="kicker">{% include date-fr.html date=article.date %}</span>
-        <h3><a href="{{ article.url | relative_url }}">{{ article.personne | default: article.title }}</a></h3>
-        {%- if article.fonction %}<p class="role">{{ article.fonction }}</p>{% endif %}
-        {%- if article.personne %}<blockquote>{{ article.title }}</blockquote>{% elsif article.description %}<p class="role">{{ article.description }}</p>{% endif %}
-      </article>
-      {%- endfor %}
-    </div>
+  <div class="entretiens-titre">
+    <div class="polaroid polaroid-gauche" aria-hidden="true">{% include visuel.html fichier=photo2 %}</div>
+    <h2 class="display">Entretiens</h2>
+    <div class="polaroid polaroid-droite" aria-hidden="true">{% include visuel.html fichier=photo3 %}</div>
   </div>
+
+  {%- for article in entretiens limit: 4 %}
+  <article class="entretien">
+    <div class="entretien-texte">
+      <p class="label">{{ article.fonction | default: article.rubrique }}</p>
+      <span class="entretien-num" aria-hidden="true">({% if forloop.index < 10 %}0{% endif %}{{ forloop.index }})</span>
+      <h3><a href="{{ article.url | relative_url }}">{{ article.personne | default: article.title }}</a></h3>
+      {%- if article.description %}<p>{{ article.description }}</p>{% endif %}
+      <ul class="pills">
+        <li><a href="{{ article.url | relative_url }}">Lire l'entretien →</a></li>
+        <li>{% include date-fr.html date=article.date %}</li>
+      </ul>
+    </div>
+    <a class="entretien-visuel" href="{{ article.url | relative_url }}" tabindex="-1" aria-hidden="true">{% include couverture.html article=article %}</a>
+  </article>
+  {%- endfor %}
 </section>
 {%- endif %}
 
 <!-- Rubriques (liste modifiable dans _config.yml) -->
+{%- if site.rubriques %}
 <section class="section" id="rubriques">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Rubriques</h2>
-    </div>
-    <ul class="rubriques">
-      {%- for r in site.rubriques %}
-      <li><a href="{{ '/articles/' | relative_url }}">{{ r }} <small>→</small></a></li>
-      {%- endfor %}
-    </ul>
-  </div>
+  <p class="label">Rubriques</p>
+  <ul class="pills" style="margin-top: 24px">
+    {%- for r in site.rubriques %}
+    <li><a href="{{ '/articles/' | relative_url }}">{{ r }}</a></li>
+    {%- endfor %}
+  </ul>
 </section>
+{%- endif %}
 
-<!-- Lettre d'information -->
+<!-- La lettre, présentée comme un dossier -->
 <section class="section" id="lettre">
-  <div class="wrap newsletter">
-    <div>
-      <span class="kicker">La lettre</span>
-      <h2>Le droit de la semaine, en cinq minutes.</h2>
-      <p>Chaque vendredi, l'essentiel de l'actualité juridique et un entretien inédit, directement dans votre boîte mail.</p>
+  <div class="dossier">
+    <div class="carte" aria-hidden="true">
+      <p class="carte-titre">Carte de presse <small>N° {{ site.time | date: "%Y" }}-001</small></p>
+      <div class="carte-photo">{% include visuel.html fichier=photo4 %}</div>
+      <dl>
+        <dt>Titre</dt><dd>{{ site.title }}</dd>
+        <dt>Domaine</dt><dd>Droit français</dd>
+        <dt>Parution</dt><dd>Chaque vendredi</dd>
+      </dl>
+      <div class="carte-code"></div>
+      <div class="carte-signature">{{ site.initiales }}.</div>
+      <span class="tape"></span>
+      {% include tampon.html classe="stamp-3" texte="LA LETTRE · CHAQUE VENDREDI ·" centre="✉" %}
     </div>
-    <div>
-      <form data-newsletter novalidate>
+
+    <div class="feuille">
+      <span class="trombone" aria-hidden="true"></span>
+      <span class="onglet" aria-hidden="true">{{ site.title }}</span>
+      <h2 class="feuille-titre"><em>Le droit de la semaine</em><span>La lettre</span></h2>
+      <p>Chaque vendredi, l'essentiel de l'actualité juridique et un entretien inédit, directement dans votre boîte mail.</p>
+      <form class="lettre-form" data-newsletter novalidate>
         <label class="skip" for="email">Adresse e-mail</label>
         <input id="email" type="email" name="email" placeholder="votre@adresse.fr" autocomplete="email" required>
         <button type="submit">S'inscrire</button>

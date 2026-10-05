@@ -5,7 +5,7 @@
 {%- endcomment -%}
 {%- capture src %}{% include image-url.html fichier=include.fichier %}{% endcapture -%}
 <figure class="photo{% if include.taille == 'large' %} photo-large{% endif %}">
-  <img src="{{ src | strip }}" alt="{{ include.alt | default: include.legende | escape }}" loading="lazy">
+  <div class="tirage"><img src="{{ src | strip }}" alt="{{ include.alt | default: include.legende | escape }}" loading="lazy"></div>
   {%- if include.legende or include.credit %}
   <figcaption>{{ include.legende }}{% if include.credit %} <span class="credit">© {{ include.credit }}</span>{% endif %}</figcaption>
   {%- endif %}
