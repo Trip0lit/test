@@ -139,7 +139,7 @@ Le texte s'écrit en **Markdown**, une façon très simple de mettre en forme av
 | `*une nuance*` | *une nuance* (italique) |
 | `[Légifrance](https://www.legifrance.gouv.fr)` | Un lien cliquable |
 | `## Mon intertitre` | Un intertitre |
-| `### Ma question ?` | Une question d'entretien (texte en gras avec un trait bordeaux) |
+| `### Ma question ?` | Une question d'entretien (en italique rose) |
 | `> « Une phrase forte »` | Une citation mise en valeur |
 | `- un point` (une ligne par point) | Une liste à puces |
 | `1. une étape` | Une liste numérotée |
@@ -185,7 +185,17 @@ Sur téléphone, les photos d'une galerie s'affichent automatiquement les unes s
 
 Les deux articles fournis sont des **exemples** (l'entretien d'Hélène Marchetti est fictif) : supprimez-les quand vous aurez publié vos propres articles. Les photos dont le nom commence par `exemple-` dans `assets/images` peuvent aussi être supprimées, à condition qu'aucun article ne les utilise encore.
 
-**Autres textes modifiables sans toucher au code**, dans le fichier **`_config.yml`** à la racine du dépôt : le slogan, la description du média, la citation affichée sur la page d'accueil et la liste des rubriques. Respectez simplement l'indentation (les espaces en début de ligne) et les guillemets.
+**Autres réglages modifiables sans toucher au code**, dans le fichier **`_config.yml`** à la racine du dépôt (respectez simplement l'indentation, c'est-à-dire les espaces en début de ligne, et les guillemets) :
+
+| Réglage | Ce qu'il change |
+|---|---|
+| `title`, `tagline`, `description` | Le nom du média, le slogan sous le grand titre, la description. |
+| `logo` | Le carré en haut à gauche : le nom d'une image de `assets/images` (carrée de préférence). Laissé vide, il affiche les `initiales`. |
+| `initiales` | Les lettres affichées dans le logo et sur la carte de presse. |
+| `photos_collage` | Les 4 photos décoratives de la page d'accueil (le timbre, les deux photos autour du titre « Entretiens », la photo de la carte de presse), dans cet ordre. |
+| `manifeste` | Le grand texte de présentation : une partie droite, une partie en italique, et un mot entouré de pointillés. |
+| `valeurs` | Les quatre valeurs affichées sous la présentation. |
+| `rubriques` | Les rubriques affichées sur la page d'accueil. |
 
 ---
 
@@ -220,6 +230,7 @@ _includes/           Morceaux réutilisables : en-tête, pied de page, photo, ga
 index.html           Page d'accueil
 articles/index.html  Liste de tous les articles
 assets/styles.css    Le design
+assets/fonts/        Les polices (Instrument Serif et Archivo, licence libre SIL OFL)
 assets/main.js       Date du jour, formulaire de la lettre
 assets/images/       Toutes les images
 ```

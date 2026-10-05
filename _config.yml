@@ -8,10 +8,40 @@ tagline: "L'actualité du droit, par celles et ceux qui le font"
 description: "Média indépendant consacré à l'actualité juridique française et aux grandes voix du droit."
 lang: fr
 
-# Citation affichée au milieu de la page d'accueil
-citation:
-  texte: "Une décision de justice n'est comprise que si elle est expliquée. C'est tout le sens de notre travail."
-  auteur: "Bertrand Vasseur, conseiller d'État honoraire"
+# Logo en haut à gauche : le nom d'une image de assets/images (carrée de préférence).
+# Laissez vide ("") pour afficher les initiales ci-dessous à la place.
+logo: ""
+initiales: "JM"
+
+# Photos décoratives des collages de la page d'accueil (dans assets/images).
+#   1re : le timbre de la présentation
+#   2e et 3e : les deux photos de part et d'autre du titre « Entretiens »
+#   4e : la photo de la carte de presse, dans l'encart « La lettre »
+photos_collage:
+  - ferchichi3compress.jpg
+  - ferchichi2compress.jpg
+  - exemple-balance.jpg
+  - ferchichi1compress.jpg
+
+# Présentation du média, en grand sur la page d'accueil.
+#   texte    : la première partie, en caractères droits
+#   italique : la suite, en italique
+#   entoure  : un mot (ou deux) entouré d'un trait en pointillés, à la fin
+manifeste:
+  texte: "J'ai crée un média décrypte l'actualité juridique et donne la parole à celles et ceux qui font le droit en France."
+  italique: "Exigeant sur le fond, insolent dans la forme, et toujours"
+  entoure: "sans jargon."
+
+# Les quatre valeurs affichées sous la présentation
+valeurs:
+  - titre: "Rigueur."
+    texte: "Chaque décryptage s'appuie sur les textes, la jurisprudence et des sources vérifiées."
+  - titre: "Clarté."
+    texte: "Le droit concerne tout le monde : nous l'expliquons sans jargon ni raccourci."
+  - titre: "Indépendance."
+    texte: "Nous choisissons librement nos sujets et nos invités, sans autre ligne que la curiosité."
+  - titre: "Dialogue."
+    texte: "Avocats, magistrats, universitaires : nous croisons les regards pour éclairer le débat."
 
 # Rubriques proposées sur la page d'accueil
 rubriques:

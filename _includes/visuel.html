@@ -1,0 +1,10 @@
+{%- comment -%}
+  Une image décorative à partir d'un nom de fichier, ou un papier crème si le nom est vide.
+  Paramètres : fichier, initiales (texte du papier crème)
+{%- endcomment -%}
+{%- if include.fichier and include.fichier != "" -%}
+  {%- capture src %}{% include image-url.html fichier=include.fichier %}{% endcapture -%}
+  <img src="{{ src | strip }}" alt="" loading="lazy">
+{%- else -%}
+  <div class="placeholder" aria-hidden="true">{{ include.initiales | default: site.initiales }}</div>
+{%- endif -%}
